@@ -1,25 +1,22 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
+import Display from './components/disp'
+import Keypad from './components/keepad'
 import './App.css';
 
-function App() {
+const App = () => {
+  const [expresion, setExpresion] = useState('');
+  const [answer, setAnswer] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+
+      <div className='d-flex flex-column'>
+        <Display expresion={expresion} answer={answer} />
+        <Keypad expresion={expresion} setExpresion={setExpresion} answer={answer} setAnswer={setAnswer} />
+      </div>
+
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
